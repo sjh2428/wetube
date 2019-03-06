@@ -1,10 +1,9 @@
-doctype html
-html
-    head
-        link(rel="stylesheet",href="https://use.fontawesome.com/releases/v5.7.2/css/all.css",integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr",crossorigin="anonymous")
-        title #{pageTitle} | #{siteName}
-    body
-        include ../partials/header
-        main
-            block content
-        include ../partials/footer
+extends layouts/main
+
+block content
+    .form-container
+        form(action=routes.login, method="post")
+            input(type="email", name="email", placeholder="Email", required=true)
+            input(type="password", name="password", placeholder="Password", required=true)
+            input(type="submit", value="Log In")
+        include partials/socialLogin

@@ -1,10 +1,10 @@
-doctype html
-html
-    head
-        link(rel="stylesheet",href="https://use.fontawesome.com/releases/v5.7.2/css/all.css",integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr",crossorigin="anonymous")
-        title #{pageTitle} | #{siteName}
-    body
-        include ../partials/header
-        main
-            block content
-        include ../partials/footer
+extends layouts/main
+
+block content
+    .form-container
+        form(action=`/videos${routes.upload}`, method="post")
+            label(for="file") Video File
+            input(type="file", id="video", name="video", required=true)
+            input(type="text", name="title", placeholder="Title", required=true)
+            textarea(name="description", placeholder="Description", required=true)
+            input(type="submit", value="Upload Video")
