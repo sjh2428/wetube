@@ -1,16 +1,16 @@
-#WeTube
+# WeTube
 
 Cloning Youtube With ValinaJS and NodeJS
 
 ## Pages:
 
-- [ ] Home
+- [x] Home
 - [x] Join
 - [x] Login
 - [x] Search
 - [ ] User Detail
 - [ ] Edit Profile
 - [ ] Change Password
-- [ ] Upload
-- [ ] Video Detail
-- [ ] Edit Video
+- [x] Upload
+- [x] Video Detail
+- [x] Edit Video
