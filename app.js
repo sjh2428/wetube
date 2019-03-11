@@ -6,12 +6,14 @@ import bodyParser from "body-parser";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
-import routes from "./routes"
+import routes from "./routes";
 import { localsMiddleWare } from "./middlewares";
+
 const app = express();
 
 app.use(helmet());
 app.set("view engine", "pug");
+app.use("/uploads", express.static("uploads"));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,9 +32,9 @@ app.use(routes.videos, videoRouter);
 
 // app.use(betweenHome);
 
-//const middleware = (req, res, next) => {
+// const middleware = (req, res, next) => {
 //    res.send("not happening");
-//};  //Like this, middleware can cut the connection.
-//app.get("/", betweenHome, handleHome);
+// };  //Like this, middleware can cut the connection.
+// app.get("/", betweenHome, handleHome);
 
 export default app;
