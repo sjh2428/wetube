@@ -16,6 +16,7 @@ module.exports = {
     rules: {
       "no-console": "off",
       "no-else-return": "off",
-      "camelcase": "off"
+      "camelcase": "off",
+      //"no-use-before-define": "off"
     }
   };
