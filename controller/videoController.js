@@ -49,7 +49,10 @@ export const videoDetail = async(req, res) => {
     try {
         const video = await Video.findById(id).populate('creator').populate("comments");
         // populate를 붙이면 id가 나오는 것이 아니라 creator의 전체 Object가 나옴
-        res.render("videoDetail", {pageTitle: video.title, video});
+        // console.log(video.comments[0].creator, typeof(video.comments[0].creator));
+        // console.log(req.user._id, typeof(req.user._id));
+        // console.log(video.comments[0].creator.toString() === req.user._id.toString());
+        res.render("videoDetail", {pageTitle: video.title, video, user: req.user});
     } catch(error) {
         res.redirect(routes.home);
     }
@@ -130,8 +133,32 @@ export const postAddComment = async(req, res) => {
         });
         video.comments.push(newComment.id);
         video.save();
-        res.status(200);
+        res.status(200).json({
+            data: newComment._id
+        });
     } catch(error) {
+        res.status(400);
+    } finally {
+        res.end();
+    }
+}
+
+// Del Comment
+export const postDelComment = async(req, res) => {
+    const {
+        body: {cid},
+        user
+    } = req;
+    try {
+        const comId = await Comment.findById(cid);
+        if (String(user.id) === String(comId.creator)) {
+            comId.remove();
+            res.status(200);
+        } else {
+            throw new Error("Wrong access! Not equal creator and user");
+        }
+    } catch(error) {
+        console.log(error);
         res.status(400);
     } finally {
         res.end();

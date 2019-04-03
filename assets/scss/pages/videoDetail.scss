@@ -46,15 +46,30 @@
         }
       }
       .video__comments-list {
+        width: 300px;
         margin-top: 50px;
         li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
           background-color: #3498db;
           color: white;
-          padding: 15px;
+          padding: 20px;
           border-radius: 20px;
           border-bottom-left-radius: 0px;
+          position: relative;
           &:not(:last-child) {
             margin-bottom: 15px;
+          }
+          button.CommentDelBtn {
+            position: absolute;
+            margin: 0px;
+            padding: 0px;
+            right: -90px;
+            height: 30px;
+            background-color: red;
+            width: 70px;
+            outline: none;
           }
         }
       }
