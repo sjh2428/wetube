@@ -1,6 +1,6 @@
 # WeTube
 
-Cloning Youtube With ValinaJS and NodeJS
+Cloning Youtube With VanillaJS and NodeJS
 
 ## Pages:
 
