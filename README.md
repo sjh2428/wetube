@@ -14,3 +14,8 @@ Cloning Youtube With VanillaJS and NodeJS
 - [x] Upload
 - [x] Video Detail
 - [x] Edit Video
+
+## Run Step
+1. `mongod -dbpath (path to store db)`
+2. `npm run dev:assets`
+3. `npm run dev:server`
